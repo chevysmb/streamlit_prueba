@@ -1,0 +1,4 @@
+streamlit
+pathlib
+llama-index
+nltk
