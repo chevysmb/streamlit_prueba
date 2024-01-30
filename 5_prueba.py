@@ -17,7 +17,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=Ollama(model="mistral", temperature=0.1, system_prompt="You are currently a chatbot with the ability to answer questions about the PDF data files that are passed to you, this includes describing in detail the content of a document that has essays by a person and another document that contains a set of relevant news from the last month, when you answer, do so accurately, mentioning relevant data from the information you have from the pdf."))
+        service_context = ServiceContext.from_defaults(llm=Ollama(model="mistral", temperature=0.1, system_prompt="You are currently a chatbot with the ability to answer questions about the PDF data files that are passed to you, this includes describing in detail the content of a document that has essays by a person and another document that contains a set of relevant news from the last month, when you answer, do so accurately, mentioning relevant data from the information you have from the pdf."), embed_model='local')
         set_global_service_context(service_context)
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
