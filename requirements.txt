@@ -2,3 +2,4 @@ streamlit
 pathlib
 llama-index
 nltk
+pypdf
